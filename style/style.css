@@ -1,0 +1,332 @@
+/* Основные стили */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #282c34;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Верхняя панель */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #3d4048;
+    border-bottom: 1px solid #444;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.site-title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+toolbar form {
+    flex-grow: 1;
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+#searchInput {
+    width: 300px;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #444;
+    background-color: #333;
+    color: #fff;
+    transition: all .3s ease-in-out;
+}
+
+#searchInput:focus {
+    border-color: #66bb6a;
+    box-shadow: 0 0 10px rgba(102, 187, 106, 0.3);
+}
+
+.toolbar-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.toolbar-button {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.toolbar-button:hover {
+    background-color: #525661;
+}
+
+/* Главный контент */
+.container {
+    width: 70%;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+/* Страница "О нас" */
+.content {
+    padding: 2rem;
+}
+
+.content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* Страница "FAQ" */
+.content details {
+    margin-bottom: 1rem;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.content summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.content summary::-webkit-details-marker {
+    display: none;
+}
+
+.content summary::before {
+    content: "►";
+    margin-right: 0.5rem;
+}
+
+.content details[open] summary::before {
+    content: "▼";
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* Раздел с карточками */
+.card-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+    margin-top: 0;
+    justify-content: center;
+}
+
+/* Улучшенная стилистика карточек */
+.film-card {
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+
+.film-card .info-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: none; /* Убираем фон */
+    padding: 5px 10px; /* Добавляем отступы */
+}
+
+.film-card h2, .film-card p {
+    color: #fff; /* Белый цвет текста */
+    margin: 0;
+    line-height: 1.2rem;
+}
+
+.film-card h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.film-card p {
+    font-size: 0.9rem;
+}
+
+.film-card:hover {
+    transform: scale(1.05);
+}
+
+/* Оверлей для оценки и просмотров */
+.film-card .overlay-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.film-card .stars {
+    color: gold;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.film-card .views {
+    color: silver;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.film-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+/* Удаление дефолтной стрелочки у input search */
+#searchInput::-webkit-search-cancel-button {
+    display: none;
+}
+
+/* Сообщение "ничего не найдено" */
+.no-result-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #999;
+    margin-top: 2rem;
+}
+
+/* Страница "FAQ" */
+.content details {
+    margin-bottom: 1rem;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.content summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.content summary::-webkit-details-marker {
+    display: none;
+}
+
+.content summary::before {
+    content: "►";
+    margin-right: 0.5rem;
+}
+
+.content details[open] summary::before {
+    content: "▼";
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* Страница "Donate" */
+.donate-section {
+    margin-top: 2rem;
+}
+
+.donate-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.donate-option {
+    background-color: #333;
+    border-radius: 5px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.donate-option:hover {
+    transform: scale(1.05);
+}
+
+.donate-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.donate-button {
+    background-color: #66bb6a;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+    background-color: #52a65a;
+}
+
+/* Предотвращение перетаскивания изображений */
+img {
+    -webkit-user-drag: none;
+}
